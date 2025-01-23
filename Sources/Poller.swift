@@ -5,6 +5,9 @@
 // Please see the accompanying LICENSE file for the full text of the license.
 //
 
+import Foundation
+
+
 extension SwiftyZeroMQ {
 
     /**
