@@ -52,6 +52,7 @@
 		04D84E5C1DB63BF500AD9652 /* SocketType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D84E531DB63BF500AD9652 /* SocketType.swift */; };
 		04E06A5F1DB89F3E00EFC3E0 /* SwiftyZeroMQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 04E06A5C1DB89F3E00EFC3E0 /* SwiftyZeroMQ.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		04E06A601DB89F3E00EFC3E0 /* SwiftyZeroMQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E06A5D1DB89F3E00EFC3E0 /* SwiftyZeroMQ.swift */; };
+		8437F87E2D523B5600D170DD /* libzmq-xros-simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437F87D2D523B1700D170DD /* libzmq-xros-simulator.a */; };
 		B274C0252D4268B700DB14F2 /* libzmq-xros.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B274C0242D42685100DB14F2 /* libzmq-xros.a */; };
 		B274C0272D42692C00DB14F2 /* libzmq-xros.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B274C0262D42692C00DB14F2 /* libzmq-xros.a */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		04D84E531DB63BF500AD9652 /* SocketType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketType.swift; sourceTree = "<group>"; };
 		04E06A5C1DB89F3E00EFC3E0 /* SwiftyZeroMQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftyZeroMQ.h; sourceTree = "<group>"; };
 		04E06A5D1DB89F3E00EFC3E0 /* SwiftyZeroMQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyZeroMQ.swift; sourceTree = "<group>"; };
+		8437F87D2D523B1700D170DD /* libzmq-xros-simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libzmq-xros-simulator.a"; path = "Libraries/libzmq-xros-simulator.a"; sourceTree = "<group>"; };
 		B274C0242D42685100DB14F2 /* libzmq-xros.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libzmq-xros.a"; path = "../../Blueye_v1/SwiftyZeroMQ/libzmq-xros.a"; sourceTree = "<group>"; };
 		B274C0262D42692C00DB14F2 /* libzmq-xros.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libzmq-xros.a"; sourceTree = "<group>"; };
 		E925E1A81F04049500BEEC3C /* ZMQPatternsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZMQPatternsTests.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8437F87E2D523B5600D170DD /* libzmq-xros-simulator.a in Frameworks */,
 				B274C0272D42692C00DB14F2 /* libzmq-xros.a in Frameworks */,
 				B274C0252D4268B700DB14F2 /* libzmq-xros.a in Frameworks */,
 				042181391DD89E3100F8922C /* libc++.tbd in Frameworks */,
@@ -213,6 +216,7 @@
 		04D84E601DB63C0D00AD9652 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8437F87D2D523B1700D170DD /* libzmq-xros-simulator.a */,
 				B274C0242D42685100DB14F2 /* libzmq-xros.a */,
 				042AEEA31DDB0B090019D27B /* libc++.tbd */,
 				042181381DD89E3100F8922C /* libc++.tbd */,
@@ -784,9 +788,11 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Libraries",
+					"$(PROJECT_DIR)/Libraries/**",
 					"$(PROJECT_DIR)",
 				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "\"-ObjC -all_load\"";
 				PRODUCT_BUNDLE_IDENTIFIER = org.azawawi.SwiftyZeroMQ;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = xros;
@@ -819,9 +825,10 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Libraries",
+					"$(PROJECT_DIR)/Libraries/**",
 					"$(PROJECT_DIR)",
 				);
+				OTHER_LDFLAGS = "\"-ObjC -all_load\"";
 				PRODUCT_BUNDLE_IDENTIFIER = org.azawawi.SwiftyZeroMQ;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SDKROOT = xros;
